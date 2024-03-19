@@ -35,12 +35,35 @@
 // export default App
 
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 function App() {
-  
+  const [Gender,setGender] = useState([])
+  useEffect(()=>{
+    axios.get('/api/result')
+    .then((response)=>{
+      setGender(response.data)
+      // gateData()
+      // console.log('Data fetched')
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  },[Gender])
   return (
-    <div></div>
+    <>
+      <h1>data</h1>
+      <p>Gender : {Gender.length}</p>
+      {
+        Gender.map((Gender,index)=>(
+          <div>
+            {Gender.data}
+          </div>
+        ))
+      }
+      
+    </>
   )
 }
 

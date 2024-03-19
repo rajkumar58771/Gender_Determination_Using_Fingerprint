@@ -4,7 +4,7 @@ const fs = require('fs');
 const app = express();
 const port = 3000;
 
-app.get('/getData', (req, res) => {
+app.get('/api/result', (req, res) => {
   // Read the content of the text file
   fs.readFile('my_file (1).txt', 'utf8', (err, data) => {
     if (err) {
