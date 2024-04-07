@@ -39,30 +39,26 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 function App() {
-  const [Gender,setGender] = useState([])
+  const [gender,setGender] = useState([]);
+  // console.log(gender)
   useEffect(()=>{
     axios.get('/api/result')
     .then((response)=>{
       setGender(response.data)
+      // console.log(response)
       // gateData()
-      // console.log('Data fetched')
+      console.log('Data fetched')
     })
     .catch((error)=>{
       console.log(error)
     })
-  },[Gender])
+  })
   return (
     <>
-      <h1>data</h1>
-      <p>Gender : {Gender.length}</p>
-      {
-        Gender.map((Gender,index)=>(
-          <div>
-            {Gender.data}
-          </div>
-        ))
-      }
-      
+      <h1>Gender</h1> 
+      <h1 id = 'hel'> -</h1>
+      <h1 id = 'hel1'> -</h1>
+      <h1 id = 'hel2'> -</h1>
     </>
   )
 }

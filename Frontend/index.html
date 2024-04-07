@@ -4,21 +4,49 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>GDFA</title> 
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script> 
   </head>
   <body>
     <nav> 
       <h1>Gender Determination Using Fingerprint Analysis</h1>
     </nav>
-    <form action="#"></form>
-    <label for="">Upload Fingerprint:</label>
-    <input type="file" id="myfile" name="myfile">
-    <!-- <input type="submit"> -->
-    <br>
-    <button>Submit</button>
+    <form action="/run_script" method="post">
+      <label for="" >Upload Fingerprint:</label>
+      <input type="file" id="myfile" name="myfile11" >
+      <!-- <input type="submit" onclick="fetchData()"> -->
+      <br>
+
+      <button onclick="fetchData()">Submit</button>
+    </form>
     <div id="root"></div>
-    
 
     <script type="module" src="/src/main.jsx"></script>
+    <!-- <py-script src ="final_fp_gender.py"></py-script> -->
+    <script>
+      function fetchData(){
+        const xhttp1 = new XMLHttpRequest();
+      xhttp1.onload = function(){
+        document.getElementById('hel').innerHTML = this.responseText;
+      };
+      xhttp1.open('GET', 'my_file.txt', false);
+      xhttp1.send();
+
+      const xhttp2 = new XMLHttpRequest();
+      xhttp2.onload = function(){
+        document.getElementById('hel1').innerHTML = this.responseText;
+      };
+      xhttp2.open('GET', 'finger.txt', false);
+      xhttp2.send();
+      const xhttp3 = new XMLHttpRequest();
+      xhttp3.onload = function(){
+        document.getElementById('hel2').innerHTML = this.responseText;
+      };
+      xhttp3.open('GET', 'my_file.txt', false);
+      xhttp3.send();
+      }
+      
+    </script>
   </body>
 </html>
